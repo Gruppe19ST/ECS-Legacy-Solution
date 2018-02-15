@@ -4,13 +4,13 @@
     {
         private int _threshold;
         private readonly TempSensor _tempSensor;
-        private readonly Heater _heater;
+        private readonly IHeater _heater;
 
-        public ECS(int thr)
+        public ECS(int thr, IHeater heater)
         {
             SetThreshold(thr);
             _tempSensor = new TempSensor();
-            _heater = new Heater();
+            _heater = heater;
         }
 
         public void Regulate()
