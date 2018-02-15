@@ -3,14 +3,14 @@
     public class ECS
     {
         private int _threshold;
-        private readonly ITempSensor _tempSensor;
-        private readonly Heater _heater;
+        private readonly TempSensor _tempSensor;
+        private readonly IHeater _heater;
 
-        public ECS(int thr, ITempSensor tempsensor)
+        public ECS(int thr, IHeater heater)
         {
             SetThreshold(thr);
-            _tempSensor = tempsensor;
-            _heater = new Heater();
+            _tempSensor = new TempSensor();
+            _heater = heater;
         }
 
         public void Regulate()
